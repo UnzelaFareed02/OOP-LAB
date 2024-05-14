@@ -1,53 +1,51 @@
-
-import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        System.out.println(movies.isEmpty());
-        System.out.println(movies.size());
+        String paragraph = "Object-oriented programming (OOP) is a programming paradigm." + "\n" +
+                "Based on the concept 7 of 'objects', which can contain data and code." + "\n" +
+                "Data in the form of fields 4 6 (often known as attributes or properties." + "   \n"+
+                "And code, in the form of procedures (often known as methods)." + "\n"+
+                "In OOP, computer programs are designed by making them out of objects.";
 
 
-        movies.add(new Movie ("Snowden", 2024, "Fiction", 1));
-        movies.add(new Movie ("Kings", 2022, "Science", 2));
-        movies.add(new Movie ("Privacy", 2020, "Fiction", 3));
+       /*
+       // Splitting the paragraph into sentences
+       String[] sentences = paragraph.split("\\.");
 
 
-        System.out.println(movies.size());
-
-
-        //removal
-        for (Movie movie: movies) {
-            System.out.println(movie);
-        }
-        movies.remove(new Movie ("Kings", 2022, "Science", 4));
-
-
-        //for incrementing rating
-        movies.set(0,new Movie("zero Movie", 2019, "Factual", 5));
-        // System.out.println();
-        for(Movie movie: movies){
-            System.out.println(movie);
-        }
-
-
-        //incrementing
-        for(Movie movie: movies){
-            movie.setRating(movie.getRating()+1);
-        }
+       // Printing each sentence
+       for (String sentence : sentences) {
+           System.out.println(sentence.trim() + ".");
+       }   */
 
 
 
 
-        System.out.println("\nRatings after increment:");
-        for (Movie movie : movies) {
-            System.out.println(movie);
+        // Splitting the paragraph into sentences
+        String[] sentences = paragraph.split("\\.");
+
+
+        // Printing each sentence
+        for (String sentence : sentences) {
+            System.out.println(sentence.trim() + ".");
+            countCharactersAndNumbers(sentence);
         }
     }
 
 
+    // Method to count characters and numbers
+    private static void countCharactersAndNumbers(String sentence) {
+        int characterCount = 0;
+        int numberCount = 0;
+        for (char c : sentence.toCharArray()) {
+            if (Character.isLetter(c)) {
+                characterCount++;
+            } else if (Character.isDigit(c)) {
+                numberCount++;
+            }
+        }
+        System.out.println("Character count: " + characterCount);
+        System.out.println("Number count: " + numberCount);
+    }
 }
-
-
-
